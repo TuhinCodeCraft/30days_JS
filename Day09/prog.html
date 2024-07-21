@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<style>
+    .div2{
+        height: 100px;
+        width: 300px;
+        background-color: orangered;
+        color: aliceblue;
+        font-size: 20px;
+        font-weight: bold;
+        margin: auto;
+        border-radius: 10%;
+        text-align: center;
+    }
+    .final{
+        height: 150px;
+        width: 300px;
+        background-color: aqua;
+        font-size: 20px;
+        font-weight: bold;
+        margin: auto;
+        border-radius: 10%;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="div1">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, ratione!
+    </div>
+    <div class="div2">
+        This is div2
+    </div>
+    <ul class="list">
+        <li>Rice</li>
+        <li>Oats</li>
+        <li>Panner</li>
+    </ul>
+    <div>
+        <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?cs=srgb&dl=pexels-pixabay-356056.jpg&fm=jpg" style="height: 200px; width: 300px;" id="image">
+    </div>
+    <div class="final">
+        <div id="final1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sapiente recusandae a reiciendis vitae quas error accusamus quidem, laudantium dolores!
+        </div>
+        <button id="btn1">Change Text</button>
+    </div>
+</body>
+<script>
+    // Activity 1: (Selecting and manipulating Elements)
+    // Task 1:
+    document.getElementById('div1').innerText = "Hello there"
+    // Task 2:
+    document.querySelector('.div2').style.backgroundColor = "red"
+    
+    // Activity 2: (Creating and appending elements)
+    // Task 3:
+    const div = document.createElement('div')
+    div.className = 'js'
+    div.style.backgroundColor = "blue"
+    div.style.padding = "10px"
+    div.innerText = "Hello"
+    div.style.height = "50px"
+    div.style.width = "100px"
+    document.body.appendChild(div)
+    // Task 4:
+    const li = document.createElement('li')
+    li.innerText = "Wheat"
+    document.querySelector('.list').appendChild(li)
+    
+    // Activity 3: (Removing Elements)
+    // Task 5:
+    document.body.removeChild(div)
+    // Task 6:
+    const list1 = document.querySelector('li:last-child')
+    list1.remove()
+
+    // Activity 4: (Modifying attributes and classes)
+    // Task 7:
+    document.getElementById('image').src = "https://burst.shopifycdn.com/photos/tech-meeting-flatlay.jpg?width=1000&format=pjpg&exif=0&iptc=0"
+    // Task 8:
+    const element = document.querySelector('.div2')
+    element.classList.remove("div2")
+    element.classList.add("final")
+
+    // Activity 5: (Event Handling)
+    // Task 9:
+    document.getElementById('btn1').addEventListener("click", () => {
+        document.getElementById('final1').innerText = "I Changed the Text"
+    })
+    // Task 10:
+    document.getElementById('btn1').addEventListener("mouseover", () => {
+        document.getElementById('final1').style.backgroundColor = "red"
+    })
+</script>
+</html>
