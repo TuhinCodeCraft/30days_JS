@@ -8,7 +8,7 @@ The JavaScript 30 Days Challenge is a series of coding challenges designed to im
 
 ## How to Use This Repository
 
-Each challenge has its own folder within this repository. Inside each folder, you will find the challenge description file and a solution file. To get started, simply navigate to the challenge folder and open the Question.md files in your preferred code editor. Then, try to solve the challenge on your own. If you get stuck or want to compare your solution, you can refer to the solution file.
+Each challenge has its own folder within this repository. Inside each folder, you will find the challenge description file and a solution file. To get started, simply navigate to the challenge folder and open the Question.md files on github. Then, try to solve the challenge on your own, in you preffered editor. If you get stuck or want to compare your solution, you can refer to the solution file/files.
 
 Feel free to explore the challenges in any order you prefer. You can also use this repository as a reference for future projects or as a study guide for JavaScript concepts.
 
