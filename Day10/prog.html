@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #para1 {
+            margin-bottom: 20px;
+        }
+        #img1 {
+            height: 300px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        #box1, #box2 {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        #box2 {
+            background-color: brown;
+            color: white;
+        }
+        #inputField {
+            margin-bottom: 20px;
+            height: 30px;
+            width: 200px;
+            padding: 5px;
+        }
+        #log {
+            height: 30px;
+            width: 200px;
+            padding: 5px;
+            background-color: white;
+            border: 1px solid black;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"], input[type="number"] {
+            margin-bottom: 10px;
+            height: 30px;
+            width: 200px;
+            padding: 5px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: aqua;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="para1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi tenetur nemo distinctio qui at veritatis amet sequi aspernatur. Vel, magnam?</p>
+        <button id="btn1">Change</button>
+        <img src="https://images.unsplash.com/photo-1615789591457-74a63395c990?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8fDA%3D" id="img1">
+        <div id="box1">
+            Change the background color
+        </div>
+        <div id="box2">
+            Reset the background color
+        </div>
+        <input type="text" id="inputField">
+        <div id="log"></div>
+
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" placeholder="Enter your name">
+            <input type="number" placeholder="Enter your marks">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <h3>Choose you favourite falvour</h3>
+    <select class="opt">
+        <option>Chocolate</option>
+        <option>Vanila</option>
+        <option>Strawberry</option>
+    </select>
+    <h4 class="res"></h4>
+    <ul id="myList">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+        <li>Item5</li>
+    </ul>
+    <button id="addbtn">Add Item</button>
+    <ul id="dynamicList"></ul>
+    <script>
+        // Activity 1: (Basic Event Handling)
+        // Task 1:
+        document.getElementById('btn1').addEventListener("click", function () {
+            document.getElementById('para1').innerText = 'I changed the text';
+        });
+
+        // Task 2:
+        const image = document.getElementById('img1');
+        image.addEventListener('dblclick', function(){
+            image.style.display = 'none';
+        });
+
+        // Activity 2: (Mouse Events)
+        // Task 3:
+        document.getElementById('box1').addEventListener('mouseover', function(){
+            document.body.style.backgroundColor = 'aqua';
+        });
+
+        // Task 4:
+        document.getElementById('box2').addEventListener('mouseout', function(){
+            document.body.style.backgroundColor = 'white';
+        });
+
+        // Activity 3: (Keyboard Events)
+        // Task 5:
+        const input = document.getElementById('inputField');
+        const log = document.getElementById('log');
+        input.addEventListener('keydown', function(event){
+            if (event.key === 'ArrowDown') {
+                log.innerText = 'Arrow Down';
+            }
+        });
+
+        // Task 6:
+        input.addEventListener('keyup', function(){
+            log.innerText = input.value;
+        });
+
+        // Activity 4: (Form Events)
+        // Task 7:
+        function handleSubmit(event){
+            event.preventDefault();
+            const name = event.target[0].value;
+            const marks = event.target[1].value;
+            console.log(`Marks of ${name} is ${marks}`);
+        }
+        // Task 8:
+        document.querySelector('.opt').addEventListener('change', function (e){
+            document.querySelector('.res').innerText = `You Choose ${e.target.value}`
+        })
+
+        // Activity 5: (Event Delegation)
+        // Task 9:
+        document.getElementById('myList').addEventListener('click', function(event) {
+            if (event.target && event.target.nodeName === 'LI') {
+                console.log(event.target.textContent);
+            }
+        });
+        // Task 10:
+        document.getElementById('addbtn').addEventListener('click', function(){
+            const newEle = document.createElement('li')
+            newEle.innerText = `New Item ${document.getElementById('dynamicList').childElementCount+1}`
+            document.getElementById('dynamicList').appendChild(newEle)
+        })
+    </script>
+</body>
+</html>
